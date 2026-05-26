@@ -44,16 +44,10 @@ My website will include:
 HEADER / TITLE
 ------------------------------------------------
 
-GAME SCREENSHOT OR BANNER
-------------------------------------------------
-
-ABOUT THE GAME | HOW TO PLAY | HIGH SCORES
+ABOUT THE GAME | HOW TO PLAY |
 ------------------------------------------------
 
 PLAYABLE GAME AREA
-------------------------------------------------
-
-ABOUT THE DEVELOPER
 ------------------------------------------------
 
 FOOTER
