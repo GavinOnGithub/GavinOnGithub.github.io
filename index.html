@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
-
-    
-    
-    Desert Journey
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Turn Based Attack Game</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -18,98 +18,179 @@
             min-height: 100vh;
         }
 
-        /* Header */
+        /* Header / Title Banner */
         .header {
             background: linear-gradient(180deg, #FC8181 0%, #F79400 100%);
             text-align: center;
-            padding: 40px 20px;
-            border-bottom: 4px solid #FFFFFF;
+            padding: 60px 20px;
+            border-bottom: 5px solid #FFFFFF;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-            margin-bottom: 8px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
         }
 
         .header .tagline {
-            font-size: 1.1em;
-            opacity: 0.9;
+            font-size: 1.3em;
+            opacity: 0.95;
             font-style: italic;
         }
 
-        /* Tab Bar */
-        .tab-bar {
+        /* Navigation */
+        .nav-bar {
             background: #FC8181;
             display: flex;
-            flex-direction: row;
             justify-content: center;
+            gap: 0;
             border-bottom: 3px solid #FFFFFF;
-            flex-wrap: wrap;
         }
 
-        .tab-bar a {
+        .nav-bar a {
             color: #FFFFFF;
             text-decoration: none;
-            padding: 16px 45px;
+            padding: 18px 40px;
             font-weight: bold;
-            font-size: 1.05em;
+            font-size: 1.1em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
             border-right: 2px solid rgba(255,255,255,0.3);
         }
 
-        .tab-bar a:last-child {
+        .nav-bar a:last-child {
             border-right: none;
         }
 
-        .tab-bar a:hover {
+        .nav-bar a:hover {
             background: #F79400;
+            transform: translateY(-2px);
         }
 
-        /* Content */
+        /* Main Content Container */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
+        /* Section Styling */
         .section {
             background: rgba(252, 129, 129, 0.9);
-            border-radius: 12px;
-            padding: 36px;
-            margin-bottom: 36px;
-            border: 2px solid #FFFFFF;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
         }
 
         .section h2 {
-            font-size: 2em;
-            margin-bottom: 16px;
+            font-size: 2.2em;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border-bottom: 2px solid #FFFFFF;
-            padding-bottom: 8px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+            border-bottom: 3px solid #FFFFFF;
+            padding-bottom: 10px;
             display: inline-block;
         }
 
         .section p {
-            font-size: 1.1em;
+            font-size: 1.15em;
             line-height: 1.8;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* Game Area */
+        .game-section {
+            text-align: center;
+        }
+
+        .game-wrapper {
+            background: #D9D9D9;
+            border-radius: 15px;
+            padding: 30px;
+            display: inline-block;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .game-wrapper iframe {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .play-button {
+            display: inline-block;
+            margin-top: 20px;
+            background: #FC8181;
+            color: #FFFFFF;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 3px solid #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .play-button:hover {
+            background: #FFFFFF;
+            color: #FC8181;
+            transform: scale(1.05);
+        }
+
+        /* How to Play Grid */
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .control-card {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #FFFFFF;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .control-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.25);
+        }
+
+        .control-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .control-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         /* Features List */
         .features-list {
             list-style: none;
-            margin-top: 16px;
+            margin-top: 20px;
         }
 
         .features-list li {
-            font-size: 1.1em;
-            padding: 10px 0 10px 36px;
+            font-size: 1.2em;
+            padding: 12px 0;
+            padding-left: 40px;
             position: relative;
         }
 
@@ -117,221 +198,170 @@
             content: "⚔️";
             position: absolute;
             left: 0;
-        }
-
-        /* How to Play Grid */
-        .controls-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .control-card {
-            background: rgba(255,255,255,0.15);
-            border-radius: 10px;
-            padding: 22px;
-            border: 2px solid #FFFFFF;
-            text-align: center;
-        }
-
-        .control-card .icon {
-            font-size: 2.2em;
-            margin-bottom: 8px;
-        }
-
-        .control-card h3 {
-            font-size: 1.1em;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .control-card p {
-            font-size: 0.95em;
-            line-height: 1.5;
-            margin-bottom: 0;
-        }
-
-        /* Play Now Section */
-        .game-section {
-            text-align: center;
-        }
-
-        .game-wrapper {
-            background: #D9D9D9;
-            border-radius: 12px;
-            padding: 40px 40px;
-            display: inline-block;
-            border: 3px solid #FFFFFF;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .game-wrapper iframe {
-            display: block;
-            border-radius: 8px;
-            border: none;
-        }
-
-        .play-button {
-            display: inline-block;
-            margin-top: 10px;
-            background: #FC8181;
-            color: #FFFFFF;
-            padding: 14px 36px;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid #FFFFFF;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.2s ease;
-        }
-
-        .play-button:hover {
-            background: #FFFFFF;
-            color: #FC8181;
+            font-size: 1.3em;
         }
 
         /* Footer */
         .footer {
             background: #FC8181;
             text-align: center;
-            padding: 30px 20px;
-            border-top: 4px solid #FFFFFF;
+            padding: 40px 20px;
+            border-top: 5px solid #FFFFFF;
+            margin-top: 60px;
         }
 
         .footer p {
-            font-size: 1em;
-            margin-bottom: 6px;
+            font-size: 1.1em;
+            margin-bottom: 10px;
         }
 
         .footer-links {
-            margin-top: 12px;
+            margin-top: 15px;
         }
 
         .footer-links a {
             color: #FFFFFF;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 15px;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
             color: #F79400;
         }
 
-        /* Desert decoration */
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav-bar {
+                flex-direction: column;
+            }
+            
+            .nav-bar a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.3);
+            }
+            
+            .game-wrapper iframe {
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        /* Desert decorative elements */
         .desert-decoration {
             text-align: center;
-            font-size: 1.8em;
-            margin: 16px 0;
-            letter-spacing: 16px;
+            font-size: 2em;
+            margin: 20px 0;
+            letter-spacing: 20px;
         }
+    </style>
+</head>
+<body>
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .header h1 { font-size: 2em; }
-            .tab-bar a { padding: 14px 20px; font-size: 0.95em; }
-            .game-wrapper { padding: 20px; }
-            .game-wrapper iframe { width: 100%; height: 400px; }
-        }
-    
+    <!-- Header / Title Banner -->
+    <header class="header">
+        <h1>🏜️ Desert Journey 🏜️</h1>
+        <p class="tagline"> Control 3 Characters in this Adventure!</p>
+    </header>
 
-
-
-    <!-- Header -->
-    
-        🏜️ Desert Journey 🏜️
-        Control 3 Characters in this Adventure!
-    
-
-    <!-- Tab Bar -->
-    
-        About
-        How to Play
-        Play Now
-    
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="#about">About</a>
+        <a href="#how-to-play">How to Play</a>
+        <a href="#play">Play Now</a>
+    </nav>
 
     <!-- Main Content -->
-    
+    <div class="container">
 
-        <!-- About -->
-        
-            ⚔️ About the Game
-            Welcome to the desert! Desert Journey is a Turn Based Attack Game where you command a squad of three characters through sands and ancient ruins.
-            The goal? Collect resources, upgrade your gear, battle through 10 levels, and defeat the final boss!
-            🌵 🏜️ 🦂 ☀️ 🌵
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>⚔️ About the Game</h2>
+            <p>Welcome to the desert! <strong>This is a Turn Based Attack Game</strong> you command a squad of three character through sands and ancient ruins.</p>
+            <p>The Goal? <strong>Collect resources, upgrade your gear, battle through 10 levels, and defeat the final boss!</strong> Strategy is required.</p>
+            <p>Are you ready? The desert awaits...</p> 
             
-                Control three characters with unique abilities
-                Gather resources to upgrade your tools
-                Battle through 10 challenging levels
-                Upgrade weapons, armor, and gear
-                Face the final boss on Level 10!
+            <div class="desert-decoration">🌵 🏜️ 🦂 ☀️ 🌵</div>
             
-        
+            <ul class="features-list">
+                <li>Control three characters with special abilities</li>
+                <li>Gather resources to upgrade your tools</li>
+                <li>Battle through 10 challenging levels</li>
+                <li>Upgrade weapons, armor, and gear</li>
+                <li>Face the final boss on Level 10!</li>
+            </ul>
+        </section>
 
-        <!-- How to Play -->
-        
-            🎮 How to Play
-            Here's everything you need to know to get started:
+        <!-- How to Play Section -->
+        <section id="how-to-play" class="section">
+            <h2>🎮 How to Play</h2>
+            <p>Here's everything you need to know:</p>
             
-                
-                    🖱️
-                    Select Characters
-                    Click your characters to select them and view their abilities.
-                
-                
-                    ⚔️
-                    Attack Enemies
-                    Choose targets wisely — each enemy has different strengths.
-                
-                
-                    🎒
-                    Collect Resources
-                    Gather items from each level to grow stronger.
-                
-                
-                    ⬆️
-                    Upgrade Gear
-                    Visit the shop between levels to buy powerful upgrades.
-                
-                
-                    👑
-                    Beat the Boss
-                    Survive all 10 levels and take down the final boss to win!
-                
-            
-        
+            <div class="controls-grid">
+                <div class="control-card">
+                    <div class="icon">🖱️</div>
+                    <h3>Select Characters</h3>
+                    <p>Click on your characters to select them and view their abilities and stats.</p>
+                </div>
+                <div class="control-card">
+                    <div class="icon">⚔️</div>
+                    <h3>Attack Enemies</h3>
+                    <p>Choose your targets wisely! Each enemy has different strengths and weaknesses.</p>
+                </div>
+                <div class="control-card">
+                    <div class="icon">🎒</div>
+                    <h3>Collect Resources</h3>
+                    <p>Gather gold, weapons, and items scattered across each level to grow stronger.</p>
+                </div>
+                <div class="control-card">
+                    <div class="icon">⬆️</div>
+                    <h3>Upgrade Gear</h3>
+                    <p>Visit the shop between levels to buy powerful upgrades for your squad.</p>
+                </div>
+                <div class="control-card">
+                    <div class="icon">🧠</div>
+                    <h3>Plan Your Strategy</h3>
+                    <p>Think ahead! Timing is needed to to win.</p>
+                </div>
+                <div class="control-card">
+                    <div class="icon">👑</div>
+                    <h3>Beat the Boss</h3>
+                    <p>Survive all 10 levels and take down the final boss to win the game!</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Play Now -->
-        
-            🎯 Play Now
-            Jump straight into the action — your desert adventure starts below!
+        <!-- Playable Game Section -->
+        <section id="play" class="section game-section">
+            <h2>🎯 Play Now</h2>
+            <p>Jump straight into the action! Your desert adventure starts below:</p>
             
-                
-                
+            <div class="game-wrapper">
+                <iframe width="410" height="460" src="https://academy.cs.cmu.edu/sharing/graySnake500990/embed" title="A Turn Based Attack Game"></iframe>
+            </div>
             
-            
-            🎮 Open Full Screen
-        
+            <br>
+            <a href="https://academy.cs.cmu.edu/sharing/graySnake500990" class="play-button" target="_blank">🎮 Open Full Screen</a>
+        </section>
 
-    
+    </div>
 
     <!-- Footer -->
-    
-        🏜️ Desert Journey 🏜️
-        Created with CMU CS Academy
-        
-            About
-            How to Play
-            Play Now
-            CMU Game Page
-        
-        © 2026 Desert Journey. All rights reserved.
-    
+    <footer class="footer">
+        <p>🏜️ <strong>A Turn Based Attack Game</strong> 🏜️</p>
+        <p>Created with CMU Academy | Desert Themed Adventure</p>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#play">Play</a>
+            <a href="https://academy.cs.cmu.edu/sharing/graySnake500990" target="_blank">CMU Game Page</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">© 2026 A Turn Based Attack Game. All rights reserved.</p>
+    </footer>
 
-
-
-```
+</body>
+</html>
